@@ -71,8 +71,6 @@ MUX1 :  entity work.muxGenerico2x1  generic map (larguraDados => larguraDados)
                   seletor_MUX  => SelMUX,
                   saida_MUX    => MUX_REG1);
 
-
-
 -- Bloquinho da ULA e ses registradores (UHUL!!!)
 ULA1 : entity work.ULASomaSub  generic map(larguraDados => larguraDados)
           port map (entradaA =>DadoOut, entradaB => MUX_REG1, saida => Saida_ULA, flagZero => flagSaidaUla  ,seletor => Operacao_ULA);
@@ -125,10 +123,7 @@ DESVIO : entity work.logicaDesvia
 						 JMP => JMP,
 						 RET => RET,
 						 JSR => JSR,
-						 saida => saidaDesv
-  );
-
-
+						 saida => saidaDesv);
 
 ROM_Address  <= Endereco;
 Data_OUT     <= DadoOut;
