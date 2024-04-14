@@ -15,7 +15,7 @@ architecture comportamento of logicaDesvia is
 
   begin
   
-  saida <= "01" when (entradaJMP or (entradaJEQ and entradaFlag) or entradaJSR) else -- "01" when (JMP = '1') or (JEQ = '1' and Flag_igual = '1') or JSR = '1'
-			  "10" when (entradaRET) else
+  saida <= "01" when (JMP or (JEQ and Flag_Igual) or JSR) else -- "01" when (JMP = '1') or (JEQ = '1' and Flag_igual = '1') or JSR = '1'
+			  "10" when (RET) else
 		  	  "00";  -- NOP para os entradas Indefinidas
 end architecture;
