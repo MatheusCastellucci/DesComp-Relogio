@@ -18,6 +18,8 @@ mne =	{
        "CEQ":   "8",
        "JSR":   "9",
        "RET":   "A",
+       "ADN":   "B",   #tendo feito isso aqui, acho q a conversao para AND ja ta pronta, mas posso estar errado 
+                       #(se vc para pra pensar, as alterações pro AND vao rolar mesmo em: cpu/ula/rom/decoder)
 }
 
 #Converte o valor após o caractere arroba '@'
