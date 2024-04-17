@@ -18,12 +18,12 @@ architecture interface of divisorGenerico_e_Interface is
 begin
 
 baseTempo: entity work.divisorGenerico
-           generic map (divisor => 25000000)   -- divide por 10.
+           generic map (divisor => 25000000)   -- vamos contar 1seg por seg
            port map (clk => clk, saida_clk => saidaclk_reg1seg);
 			  
 			  
 baseTempoR: entity work.divisorGenerico
-           generic map (divisor => 25000)   -- divide por 10.
+           generic map (divisor => 25000)   -- vamos contar 1000seg por seg
            port map (clk => clk, saida_clk => saidaclk_rapido);	
 	
 MUXTempo :  entity work.muxGenerico2x1_bit  generic map (larguraDados => 1)
