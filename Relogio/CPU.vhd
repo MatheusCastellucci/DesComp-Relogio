@@ -22,11 +22,12 @@ entity CPU is
   );
 end entity;
 
-
+-- Como na outra parte do projeto, temos um arquivo que representa o processador (este aqui)
+-- Ele funciona basicamente de forma igual (tirando os novos bits) ao processador feito para as atividades de aula
 architecture arquitetura of CPU is
   signal CLK : std_logic;
   
-  signal Sinais_Controle : std_logic_vector (11 downto 0);
+  signal Palavra_Controle : std_logic_vector (11 downto 0);
   signal Habilita_A : std_logic;
   signal habFlagIgual: std_logic;
   
@@ -61,17 +62,16 @@ architecture arquitetura of CPU is
 
 begin
 
--- Instanciando os componentes:
+-- Instanciando o CLOCK:
 CLK <= Clock;
 
--- O port map completo do MUX.
+-- =========Port Map dos componentes que interagem com a ULA=========		
 MUX1 :  entity work.muxGenerico2x1  generic map (larguraDados => larguraDados)
         port map( entradaA_MUX => Data_IN,
                   entradaB_MUX => imediato_value,
                   seletor_MUX  => SelMUX,
                   saida_MUX    => MUX_REG1);
 
--- Bloquinho da ULA e ses registradores (UHUL!!!)
 ULA1 : entity work.ULASomaSub  generic map(larguraDados => larguraDados)
           port map (entradaA =>DadoOut, entradaB => MUX_REG1, saida => Saida_ULA, flagZero => flagSaidaUla  ,seletor => Operacao_ULA);
 			 
@@ -83,9 +83,17 @@ REGs: entity work.bancoRegistradoresArqRegMem   generic map (larguraDados => lar
 							habilitaEscrita => Habilita_A,
 							saida  => DadoOut);
 
--- =========Fim do bloquinho da ULA=========		
+FLAG_ZERO : entity work.FlipFlop
+		  port map (DIN => flagSaidaUla,
+					   DOUT => flagzero,
+					   ENABLE => habFlagIgual,
+						CLK => CLK,
+						RST => '0');
+
+--             =========Fim do bloquinho da ULA=========	
+	
 				  
--- Bloquinho do Program Counter e jumps (UEPA!!!)
+-- =========Bloquinho do Program Counter e jumps=========
 PC : entity work.registradorGenerico   generic map (larguraDados => larguraEnderecos)
           port map (DIN => Mux_PC, DOUT => Endereco, ENABLE => '1', CLK => CLK, RST => '0');
 
@@ -99,24 +107,7 @@ MUX2 : entity work.muxGenerico4x1  generic map (larguraDados => larguraEnderecos
 					  entrada3_MUX => "000000000", 
                  seletor_MUX => saidaDesv,
                  saida_MUX => Mux_PC);
-
-ENDRET : entity work.registradorGenerico   generic map (larguraDados => larguraEnderecos)
-          port map (DIN => proxPC, DOUT => saidaRET, ENABLE => habEscRET, CLK => CLK, RST => '0');
-			 
--- =========Fim do bloquinho de pulo=========
-
-	
-DECO : entity work.decoderInstru 
-          port map (opcode => opcode, saida => Sinais_Controle);
-
-
-FLAG1 : entity work.FlipFlop
-		  port map (DIN => flagSaidaUla,
-					   DOUT => flagzero,
-					   ENABLE => habFlagIgual,
-						CLK => CLK,
-						RST => '0');
-				 
+					  
 DESVIO : entity work.logicaDesvia 
 			port map( JEQ => JEQ,
 						 Flag_Igual  => flagzero,
@@ -124,20 +115,31 @@ DESVIO : entity work.logicaDesvia
 						 RET => RET,
 						 JSR => JSR,
 						 saida => saidaDesv);
+						 
+ENDRET : entity work.registradorGenerico   generic map (larguraDados => larguraEnderecos)
+          port map (DIN => proxPC, DOUT => saidaRET, ENABLE => habEscRET, CLK => CLK, RST => '0');
+			 
+-- =========Fim do bloquinho de pulo=========
 
+	
+-- Port Map do decoder responsável por definir is sinais de controle
+DECO : entity work.decoderInstru 
+          port map (opcode => opcode, saida => Palavra_Controle);
+
+-- Fazendo as ligações de sinais
 ROM_Address  <= Endereco;
 Data_OUT     <= DadoOut;
 Data_Address <= imediato_address;
 
-habEscRET    <= Sinais_Controle(11);
-JMP          <= Sinais_Controle(10);
-RET          <= Sinais_Controle(9);
-JSR          <= Sinais_Controle(8);
-JEQ          <= Sinais_Controle(7);
-selMUX       <= Sinais_Controle(6);
-Habilita_A   <= Sinais_Controle(5);
-Operacao_ULA <= Sinais_Controle(4 downto 3);
-habFlagIgual <= Sinais_Controle(2);
-Rd           <= Sinais_Controle(1);
-Wr           <= Sinais_Controle(0);
+habEscRET    <= Palavra_Controle(11);
+JMP          <= Palavra_Controle(10);
+RET          <= Palavra_Controle(9);
+JSR          <= Palavra_Controle(8);
+JEQ          <= Palavra_Controle(7);
+selMUX       <= Palavra_Controle(6);
+Habilita_A   <= Palavra_Controle(5);
+Operacao_ULA <= Palavra_Controle(4 downto 3);
+habFlagIgual <= Palavra_Controle(2);
+Rd           <= Palavra_Controle(1);
+Wr           <= Palavra_Controle(0);
 end architecture;
