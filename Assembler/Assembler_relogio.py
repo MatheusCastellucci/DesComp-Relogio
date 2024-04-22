@@ -1,24 +1,8 @@
-inputASM = 'ASM_modificado.txt' #Arquivo de entrada de contém o assembly
-outputBIN = 'BIN.txt' #Arquivo de saída que contém o binário formatado para VHDL
-outputMIF = 'initROM.mif' #Arquivo de saída que contém o binário formatado para .mif
+inputASM = 'Assembler/ASM_modificado.txt' #Arquivo de entrada de contém o assembly
+outputBIN = 'Assembler/BIN.txt' #Arquivo de saída que contém o binário formatado para VHDL
+outputMIF = 'Assembler/initROM.mif' #Arquivo de saída que contém o binário formatado para .mif
 
 noveBits = True
-
-#definição dos mnemônicos e seus
-#respectivo OPCODEs (em Hexadecimal)
-mne =	{ 
-       "NOP":   "0",
-       "LDA":   "1",
-       "SOMA":  "2",
-       "SUB":   "3",
-       "LDI":   "4",
-       "STA":   "5",
-       "JMP":   "6",
-       "JEQ":   "7",
-       "CEQ":   "8",
-       "JSR":   "9",
-       "RET":   "A",
-}
 
 #Converte o valor após o caractere arroba '@'
 #em um valor hexadecimal de 2 dígitos (8 bits)
@@ -81,53 +65,14 @@ def defineInstrucao(line):
     line = line[0]
     return line
 
-def findLabel(file,new_file):
-    lista = []
-    with open(file, "r") as f:
-        lines = f.readlines()
-
-    dic_labels = {}
-    for idx, line in enumerate(lines):
-        if ':' in line:
-            label = line.split(':')[0]
-            dic_labels[label] = str(idx)
-    
-    with open(new_file, "w") as f:
-        for line in lines:
-            if line.startswith(('JEQ', 'JMP', 'JSR')):
-                if '#' in line:
-                    linha = line.split('#')
-                    coment = linha[1]
-                    jmp_split = linha[0].split('@')
-                    if jmp_split[1].strip() in dic_labels:
-                        new_line = jmp_split[0] + '@' + dic_labels[jmp_split[1].strip()] + '           #' + coment.rstrip('\n')
-                        f.write(new_line + '\n')
-                    else:
-                        f.write(line)
-                else:
-                    jmp_split = line.split('@')
-                    if jmp_split[1].strip() in dic_labels:
-                        new_line = jmp_split[0] + '@' + dic_labels[jmp_split[1].strip()]
-                        f.write(new_line + '\n')
-                    else:
-                        f.write(line)
-
-            elif ':' in line:
-                f.write('NOP\n')
-            elif line.startswith('RET'):
-                f.write('RET\n')
-            elif line.startswith('NOP'):
-                f.write('NOP\n')
-            else:
-                f.write(line)
-
 #Consulta o dicionário e "converte" o mnemônico em
 #seu respectivo valor em hexadecimal
 def trataMnemonico(line):
     line = line.replace("\n", "") #Remove o caracter de final de linha
     line = line.replace("\t", "") #Remove o caracter de tabulacao
-    line = line.split(' ')
-    line[0] = mne[line[0]]
+    line = line.split(' ') #Separa a linha em partes
+    #vc consegue fazer com que na volta, saia o mnemonico em si, e não o valor
+    
     line = "".join(line)
     return line
 
