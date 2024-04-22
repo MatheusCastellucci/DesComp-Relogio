@@ -4,6 +4,24 @@ outputMIF = 'Assembler/initROM.mif' #Arquivo de saída que contém o binário fo
 
 noveBits = True
 
+#definição dos mnemônicos e seus
+#respectivo OPCODEs (em Hexadecimal)
+mne =	{ 
+       "NOP":   "0",
+       "LDA":   "1",
+       "SOMA":  "2",
+       "SUB":   "3",
+       "LDI":   "4",
+       "STA":   "5",
+       "JMP":   "6",
+       "JEQ":   "7",
+       "CEQ":   "8",
+       "JSR":   "9",
+       "RET":   "A",
+       "ADN":   "B",   #tendo feito isso aqui, acho q a conversao para AND ja ta pronta, mas posso estar errado 
+                       #(se vc para pra pensar, as alterações pro AND vao rolar mesmo em: cpu/ula/rom/decoder) 
+}
+
 #Converte o valor após o caractere arroba '@'
 #em um valor hexadecimal de 2 dígitos (8 bits)
 def  converteArroba(line):
