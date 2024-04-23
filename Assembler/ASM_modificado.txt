@@ -1,232 +1,232 @@
 NOP
-STA @510                       #Limpa leitura KEY1
-STA @508                       #Limpa leitura KEY0
-STA @509                       #Limpa leitura Reset 
-LDI R0, $0                     #Carrega 0 no acumulador
-STA R0, @0                     #Salva 0 no endereço 0 da RAM   
-LDI R0, $1                     #Carrega 1 no acumulador
-STA R0, @1                     #Salva o valor de R0 no endereço 1 da RAM
-LDI R0, $2                     #Carrega 2 em R0
-STA R0, @2                     #Salva o valor de R0 no endereço 2 da RAM
-LDI R0, $3                     #Carrega 3 em R0 
-STA R0, @3                     #Salva o valor de R0 no endereço 3 da RAM
-LDI R0, $4                     #Carrega 4 em R0
-STA R0, @4                     #Salva o valor de R0 no endereço 4 da RAM
-LDI R0, $5                     #Carrega 5 em R0
-STA R0, @5                     #Salva o valor de R0 no endereço 5 da RAM
-LDI R0, $6                     #Carrega 6 em R0 
-STA R0, @6                     #Salva o valor de R0 no endereço 6 da RAM
-LDI R0, $7                     #Carrega 7 em R0    
-STA R0, @7                     #Salva o valor de R0 no endereço 7 da RAM
-LDI R0, $8                     #Carrega 8 em R0
-STA R0, @8                     #Salva o valor de R0 no endereço 8 da RAM
-LDI R0, $9                     #Carrega 9 em R0
-STA R0, @9                     #Salva o valor de R0 no endereço 9 da RAM
-LDI R0, $10                    #Carrega 10 em R0             
-STA R0, @10                    #Salva o valor de R0 no endereço 10 da RAM
-LDI R0, $11                    #Carrega 11 em R0  
-STA R0, @11                    #Salva o valor de R0 no endereço 11 da RAM
-LDI R0, $12                    #Carrega 12 em R0
-STA R0, @12                    #Salva o valor de R0 no endereço 12 da RAM
-LDI R0, $13                    #Carrega 13 em R0
-STA R0, @13                    #Salva o valor de R0 no endereço 13 da RAM
-LDI R0, $14                    #Carrega 14 em R0
-STA R0, @14                    #Salva o valor de R0 no endereço 14 da RAM
-LDI R0, $15                    #Carrega 15 em R0  
-STA R0, @15                    #Salva o valor de R0 no endereço 15 da RAM
-LDA R0, @0                     #Carrega o valor do endereço 0 da RAM em R0
-STA R0, @258                   #Apaga o LED 9
-STA R0, @257                   #Apaga o LED 8
-STA R0, @256                   #Apaga os LEDs 7 a 0 
-STA R0, @288                   #Zera o HEX 0
-STA R0, @289                   #Zera o HEX 1
-STA R0, @290                   #Zera o HEX 2
-STA R0, @291                   #Zera o HEX 3
-STA R0, @292                   #Zera o HEX 4
-STA R0, @293                   #Zera o HEX 5
-STA R0, @16                    #Zera o endereço 0 da RAM (valor atual das unidades de segundos)
-STA R0, @17                    #Zera o endereço 1 da RAM (valor atual das dezenas de segundos)
-STA R0, @18                    #Zera o endereço 2 da RAM (valor atual das unidades de minutos) 
-STA R0, @19                    #Zera o endereço 3 da RAM (valor atual das dezenas de minutos) 
-STA R0, @20                    #Zera o endereço 4 da RAM (valor atual das unidades de horas)
-STA R0, @21                    #Zera o endereço 5 da RAM (valor atual das dezenas de horas)
+STA @510                        # Reseta a entrada KEY1
+STA @508                        # Reseta a entrada KEY0
+STA @509                        # Reseta a entrada de Reset
+LDI R0, $0                      # Inicializa R0 com 0
+STA R0, @0                      # Armazena 0 no endereço 0 da RAM
+LDI R0, $1                      # Define R0 com valor 1
+STA R0, @1                      # Armazena o valor 1 no endereço 1 da RAM
+LDI R0, $2                      # Define R0 com valor 2
+STA R0, @2                      # Armazena o valor 2 no endereço 2 da RAM
+LDI R0, $3                      # Define R0 com valor 3
+STA R0, @3                      # Armazena o valor 3 no endereço 3 da RAM
+LDI R0, $4                      # Define R0 com valor 4
+STA R0, @4                      # Armazena o valor 4 no endereço 4 da RAM
+LDI R0, $5                      # Define R0 com valor 5
+STA R0, @5                      # Armazena o valor 5 no endereço 5 da RAM
+LDI R0, $6                      # Define R0 com valor 6
+STA R0, @6                      # Armazena o valor 6 no endereço 6 da RAM
+LDI R0, $7                      # Define R0 com valor 7
+STA R0, @7                      # Armazena o valor 7 no endereço 7 da RAM
+LDI R0, $8                      # Define R0 com valor 8
+STA R0, @8                      # Armazena o valor 8 no endereço 8 da RAM
+LDI R0, $9                      # Define R0 com valor 9
+STA R0, @9                      # Armazena o valor 9 no endereço 9 da RAM
+LDI R0, $10                     # Define R0 com valor 10
+STA R0, @10                     # Armazena o valor 10 no endereço 10 da RAM
+LDI R0, $11                     # Define R0 com valor 11
+STA R0, @11                     # Armazena o valor 11 no endereço 11 da RAM
+LDI R0, $12                     # Define R0 com valor 12
+STA R0, @12                     # Armazena o valor 12 no endereço 12 da RAM
+LDI R0, $13                     # Define R0 com valor 13
+STA R0, @13                     # Armazena o valor 13 no endereço 13 da RAM
+LDI R0, $14                     # Define R0 com valor 14
+STA R0, @14                     # Armazena o valor 14 no endereço 14 da RAM
+LDI R0, $15                     # Define R0 com valor 15
+STA R0, @15                     # Armazena o valor 15 no endereço 15 da RAM
+LDA R0, @0                      # Carrega o valor do endereço 0 da RAM em R0
+STA R0, @258                    # Desliga o LED 9
+STA R0, @257                    # Desliga o LED 8
+STA R0, @256                    # Desliga os LEDs de 7 a 0
+STA R0, @288                    # Limpa o display HEX 0
+STA R0, @289                    # Limpa o display HEX 1
+STA R0, @290                    # Limpa o display HEX 2
+STA R0, @291                    # Limpa o display HEX 3
+STA R0, @292                    # Limpa o display HEX 4
+STA R0, @293                    # Limpa o display HEX 5
+STA R0, @16                     # Zera o endereço 16 da RAM (segundos unidades)
+STA R0, @17                     # Zera o endereço 17 da RAM (segundos dezenas)
+STA R0, @18                     # Zera o endereço 18 da RAM (minutos unidades)
+STA R0, @19                     # Zera o endereço 19 da RAM (minutos dezenas)
+STA R0, @20                     # Zera o endereço 20 da RAM (horas unidades)
+STA R0, @21                     # Zera o endereço 21 da RAM (horas dezenas)
 NOP
-LDA R0, @353                   #Carrega o valor do KEY1 em R0
-CEQ R0, @0                     #Compara o valor de R0 com a posição 0 (0)
-JEQ @57           #Se for igual, pula para NKEY1
-JSR @186           #Se for diferente, pula para SETHora
+LDA R0, @353                    # Carrega o estado da entrada KEY1 em R0
+CEQ R0, @0                      # Verifica se R0 é igual a 0
+JEQ @57                         # Pula se for verdade
+JSR @186                        # Executa sub-rotina se for falso
 NOP
-LDA R0, @357                   #Carrega o valor do CLOCK em R0
-CEQ R0, @0                     #Compara o valor de R0 com a posição 0 (0)
-JEQ @74           #Se for igual, pula para NCLOCK
-JSR @79           #Se for diferente, pula para Incremento
-LDA R0, @16                    #Carrega o valor do endereço 16 da RAM em R0 (valor atual das unidades de segundos)            
-STA R0, @288                   #Salva o valor do R0 no HEX 0  
-LDA R0, @17                    #Carrega o valor do endereço 17 da RAM em R0 (valor atual das dezenas de segundos)
-STA R0, @289                   #Salva o valor do R0 no HEX 1   
-LDA R0, @18                    #Carrega o valor do endereço 18 da RAM em R0 (valor atual das unidades de minutos)
-STA R0, @290                   #Salva o valor do R0 no HEX 2 
-LDA R0, @19                    #Carrega o valor do endereço 19 da RAM em R0 (valor atual das dezenas de minutos) 
-STA R0, @291                   #Salva o valor do R0 no HEX 3
-LDA R0, @20                    #Carrega o valor do endereço 20 da RAM em R0 (valor atual das unidades de horas)
-STA R0, @292                   #Salva o valor do R0 no HEX 4 
-LDA R0, @21                    #Carrega o valor do endereço 21 da RAM em R0 (valor atual das dezenas de horas) 
-STA R0, @293                   #Salva o valor do R0 no HEX 5
+LDA R0, @357                    # Carrega o estado do CLOCK em R0
+CEQ R0, @0                      # Verifica se R0 é igual a 0
+JEQ @74                         # Pula se for verdade
+JSR @79                         # Executa sub-rotina se for falso
+LDA R0, @16                     # Carrega o valor do endereço 16 da RAM em R0
+STA R0, @288                    # Atualiza o display HEX 0 com o valor de R0
+LDA R0, @17                     # Carrega o valor do endereço 17 da RAM em R0
+STA R0, @289                    # Atualiza o display HEX 1 com o valor de R0
+LDA R0, @18                     # Carrega o valor do endereço 18 da RAM em R0
+STA R0, @290                    # Atualiza o display HEX 2 com o valor de R0
+LDA R0, @19                     # Carrega o valor do endereço 19 da RAM em R0
+STA R0, @291                    # Atualiza o display HEX 3 com o valor de R0
+LDA R0, @20                     # Carrega o valor do endereço 20 da RAM em R0
+STA R0, @292                    # Atualiza o display HEX 4 com o valor de R0
+LDA R0, @21                     # Carrega o valor do endereço 21 da RAM em R0
+STA R0, @293                    # Atualiza o display HEX 5 com o valor de R0
 NOP
-LDA R0, @356                   #Carrega o valor do RESET em R0            
-CEQ R0, @1                     #Compara o valor de R0 com a posição 1 (1)
-JEQ @0           #Se for igual, pula para Reset
-JMP @52           #Se for diferente, pula para Start 
+LDA R0, @356                    # Carrega o estado do RESET em R0
+CEQ R0, @1                      # Verifica se R0 é igual a 1
+JEQ @0                          # Pula se for verdade
+JMP @52                         # Continua se for falso
 NOP
-STA R0, @508                   #Salva o valor do endereço 508 (limpa clock) da RAM em R0
+STA R0, @508                    # Limpa a entrada do CLOCK em R0
 NOP
-LDA R1, @16                    #Carrega o valor do endereço 16 da RAM em R1 (valor atual das unidades de segundos)
-SOMA R1, @1                    #Soma o valor de R1 com a posição 1 (1)
-CEQ R1, @10                    #Compara o valor de R1 com a posição 10 (10)
-JEQ @91           #Se for igual, pula para DezSeg (Incremento das dezenas de segundos)
-STA R1, @16                    #Se o valor de R1 não for 10, salva o valor de R1 no endereço 16 da RAM (valor atual das unidades de segundos)      
-LDA R0, @352                   #Carrega o valor do KEY0 em R0
-CEQ R0, @1                     #Compara o valor de R0 com a posição 1 (1)
-JEQ @216           #Se for igual, pula para SETSeg (Setar segundos)
-RET
+LDA R1, @16                     # Carrega o valor do endereço 16 da RAM em R1
+SOMA R1, @1                     # Incrementa R1 em 1
+CEQ R1, @10                     # Verifica se R1 é igual a 10
+JEQ @91                         # Pula se for verdade
+STA R1, @16                     # Atualiza o endereço 16 da RAM com o valor de R1
+LDA R0, @352                    # Carrega o estado da entrada KEY0 em R0
+CEQ R0, @1                      # Verifica se R0 é igual a 1
+JEQ @216                        # Pula se for verdade
+RET                             # Retorna se for falso
 NOP
-LDA R1, @0                     #Carrega o valor do endereço 0 da RAM em R1 (valor atual das unidades de segundos)
-STA R1, @16                    #Salva o valor do R1 no endereço 16 da RAM (valor atual das unidades de segundos)
-LDA R1, @17                    #Carrega o valor do endereço 17 da RAM em R1 (valor atual das dezenas de segundos)
-SOMA R1, @1                    #Soma o valor de R1 com a posição 1 (1) 
-CEQ R1, @6                     #Compara o valor de R1 com a posição 6 (6)
-JEQ @178           #Se for igual, pula para ZeroS (Zera segundos)
-STA R1, @17                    #Se o valor de R1 não for 6, salva o valor de R1 no endereço 17 da RAM (valor atual das dezenas de segundos)       
-LDA R0, @352                   #Carrega o valor do KEY0 em R0
-CEQ R0, @1                     #Compara o valor de R0 com a posição 1 (1)
-JEQ @216           #Se for igual, pula para SETSeg (Setar segundos)
-RET
+LDA R1, @0                      # Carrega o valor do endereço 0 da RAM em R1
+STA R1, @16                     # Atualiza o endereço 16 da RAM com o valor de R1
+LDA R1, @17                     # Carrega o valor do endereço 17 da RAM em R1
+SOMA R1, @1                     # Incrementa R1 em 1
+CEQ R1, @6                      # Verifica se R1 é igual a 6
+JEQ @178                        # Pula se for verdade
+STA R1, @17                     # Atualiza o endereço 17 da RAM com o valor de R1
+LDA R0, @352                    # Carrega o estado da entrada KEY0 em R0
+CEQ R0, @1                      # Verifica se R0 é igual a 1
+JEQ @216                        # Pula se for verdade
+RET                             # Retorna se for falso
 NOP
-LDA R1, @18                    #Carrega o valor do endereço 18 da RAM em R1 (valor atual das unidades de minutos)
-SOMA R1, @1                    #Soma o valor de R1 com a posição 1 (1)
-CEQ R1, @10                    #Compara o valor de R1 com a posição 10 (10)
-JEQ @113           #Se for igual, pula para DezMin (Incremento das dezenas de minutos)
-STA R1, @18                    #Se o valor de R1 não for 10, salva o valor de R1 no endereço 18 da RAM (valor atual das unidades de minutos)
-LDA R0, @352                   #Carrega o valor do KEY0 em R0
-CEQ R0, @1                     #Compara o valor de R0 com a posição 1 (1)
-JEQ @201           #Se for igual, pula para SETMin (Setar minutos)
-RET
+LDA R1, @18                     # Carrega o valor do endereço 18 da RAM em R1
+SOMA R1, @1                     # Incrementa R1 em 1
+CEQ R1, @10                     # Verifica se R1 é igual a 10
+JEQ @113                        # Pula se for verdade
+STA R1, @18                     # Atualiza o endereço 18 da RAM com o valor de R1
+LDA R0, @352                    # Carrega o estado da entrada KEY0 em R0
+CEQ R0, @1                      # Verifica se R0 é igual a 1
+JEQ @201                        # Pula se for verdade
+RET                             # Retorna se for falso
 NOP
-LDA R1, @0                     #Carrega o valor do endereço 0 da RAM em R1 (0)
-STA R1, @18                    #Salva o valor do R1 no endereço 18 da RAM (valor atual das unidades de minutos)
-LDA R1, @19                    #Carrega o valor do endereço 19 da RAM em R1 (valor atual das dezenas de minutos)
-SOMA R1, @1                    #Soma o valor de R1 com a posição 1 (1)
-CEQ R1, @6                     #Compara o valor de R1 com a posição 6 (6)
-JEQ @170           #Se for igual, pula para ZeroM (Zera minutos)
-STA R1, @19                    #Se o valor de R1 não for 6, salva o valor de R1 no endereço 19 da RAM (valor atual das dezenas de minutos)
-LDA R0, @352                   #Carrega o valor do KEY0 em R0
-CEQ R0, @1                     #Compara o valor de R0 com a posição 1 (1)
-JEQ @201           #Se for igual, pula para SETMin (Setar minutos)
-RET
+LDA R1, @0                      # Carrega o valor do endereço 0 da RAM em R1
+STA R1, @18                     # Atualiza o endereço 18 da RAM com o valor de R1
+LDA R1, @19                     # Carrega o valor do endereço 19 da RAM em R1
+SOMA R1, @1                     # Incrementa R1 em 1
+CEQ R1, @6                      # Verifica se R1 é igual a 6
+JEQ @170                        # Pula se for verdade
+STA R1, @19                     # Atualiza o endereço 19 da RAM com o valor de R1
+LDA R0, @352                    # Carrega o estado da entrada KEY0 em R0
+CEQ R0, @1                      # Verifica se R0 é igual a 1
+JEQ @201                        # Pula se for verdade
+RET                             # Retorna se for falso
 NOP
-LDA R1, @21                    #Carrega o valor do endereço 21 da RAM em R1 (valor atual das dezenas de horas)
-CEQ R1, @2                     #Compara o valor de R1 com a posição 2 (2)
-JEQ @138           #Se for igual, pula para vinte (Incremento das dezenas de horas)
-LDA R1, @20                    #Carrega o valor do endereço 20 da RAM em R1 (valor atual das unidades de horas)
-SOMA R1, @1                    #Soma o valor de R1 com a posição 1 (1)
-CEQ R1, @10                    #Compara o valor de R1 com a posição 10 (10)
-JEQ @148           #Se for igual, pula para DezHora (Incremento das dezenas de horas)
-STA R1, @20                    #Se o valor de R1 não for 10, salva o valor de R1 no endereço 20 da RAM (valor atual das unidades de horas)
-LDA R0, @352                   #Carrega o valor do KEY0 em R0
-CEQ R0, @1                     #Compara o valor de R0 com a posição 1 (1)
-JEQ @186           #Se for igual, pula para SETHora (Setar horas)
-RET
+LDA R1, @21                     # Carrega o valor do endereço 21 da RAM em R1
+CEQ R1, @2                      # Verifica se R1 é igual a 2
+JEQ @138                        # Pula se for verdade
+LDA R1, @20                     # Carrega o valor do endereço 20 da RAM em R1
+SOMA R1, @1                     # Incrementa R1 em 1
+CEQ R1, @10                     # Verifica se R1 é igual a 10
+JEQ @148                        # Pula se for verdade
+STA R1, @20                     # Atualiza o endereço 20 da RAM com o valor de R1
+LDA R0, @352                    # Carrega o estado da entrada KEY0 em R0
+CEQ R0, @1                      # Verifica se R0 é igual a 1
+JEQ @186                        # Pula se for verdade
+RET                             # Retorna se for falso
 NOP
-LDA R1, @20                    #Carrega o valor do endereço 20 da RAM em R1 (valor atual das unidades de horas)
-SOMA R1, @1                    #Soma o valor de R1 com a posição 1 (1)
-CEQ R1, @4                     #Compara o valor de R1 com a posição 4 (4)
-JEQ @158           #Se for igual, pula para ZeroH (Zera horas)
-STA R1, @20                    #Se o valor de R1 não for 4, salva o valor de R1 no endereço 20 da RAM (valor atual das unidades de horas)
-LDA R0, @352                   #Carrega o valor do KEY0 em R0
-CEQ R0, @1                     #Compara o valor de R0 com a posição 1 (1)
-JEQ @186           #Se for igual, pula para SETHora (Setar horas)
-RET
+LDA R1, @20                     # Carrega o valor do endereço 20 da RAM em R1
+SOMA R1, @1                     # Incrementa R1 em 1
+CEQ R1, @4                      # Verifica se R1 é igual a 4
+JEQ @158                        # Pula se for verdade
+STA R1, @20                     # Atualiza o endereço 20 da RAM com o valor de R1
+LDA R0, @352                    # Carrega o estado da entrada KEY0 em R0
+CEQ R0, @1                      # Verifica se R0 é igual a 1
+JEQ @186                        # Pula se for verdade
+RET                             # Retorna se for falso
 NOP
-LDA R1, @0                     #Carrega o valor do endereço 0 da RAM em R1 (0)
-STA R1, @20                    #Salva o valor do R1 no endereço 20 da RAM (valor atual das unidades de horas)
-LDA R1, @21                    #Carrega o valor do endereço 21 da RAM em R1 (valor atual das dezenas de horas)
-SOMA R1, @1                    #Soma o valor de R1 com a posição 1 (1)
-STA R1, @21                    #Salva o valor do R1 no endereço 21 da RAM (valor atual das dezenas de horas)
-LDA R0, @352                   #Carrega o valor do KEY0 em R0
-CEQ R0, @1                     #Compara o valor de R0 com a posição 1 (1)
-JEQ @186           #Se for igual, pula para SETHora (Setar horas)
-RET
+LDA R1, @0                      # Carrega o valor do endereço 0 da RAM em R1
+STA R1, @20                     # Atualiza o endereço 20 da RAM com o valor de R1
+LDA R1, @21                     # Carrega o valor do endereço 21 da RAM em R1
+SOMA R1, @1                     # Incrementa R1 em 1
+STA R1, @21                     # Atualiza o endereço 21 da RAM com o valor de R1
+LDA R0, @352                    # Carrega o estado da entrada KEY0 em R0
+CEQ R0, @1                      # Verifica se R0 é igual a 1
+JEQ @186                        # Pula se for verdade
+RET                             # Retorna se for falso
 NOP
-LDA R1, @0                     #Carrega o valor do endereço 0 da RAM em R1 (0)
-STA R1, @21                    #Salva o valor do R1 no endereço 21 da RAM (valor atual das dezenas de horas)
-STA R1, @20                    #Salva o valor do R1 no endereço 20 da RAM (valor atual das unidades de horas)
-LDA R0, @352                   #Carrega o valor do KEY0 em R0
-CEQ R0, @1                     #Compara o valor de R0 com a posição 1 (1)
-JEQ @186           #Se for igual, pula para SETHora (Setar horas)
-STA R1, @19                    #Salva o valor do R1 no endereço 19 da RAM (valor atual das dezenas de minutos)
-STA R1, @18                    #Salva o valor do R1 no endereço 18 da RAM (valor atual das unidades de minutos)
-STA R1, @17                    #Salva o valor do R1 no endereço 17 da RAM (valor atual das dezenas de segundos)
-STA R1, @16                    #Salva o valor do R1 no endereço 16 da RAM (valor atual das unidades de segundos)
-RET
+LDA R1, @0                      # Carrega o valor do endereço 0 da RAM em R1
+STA R1, @21                     # Atualiza o endereço 21 da RAM com o valor de R1
+STA R1, @20                     # Atualiza o endereço 20 da RAM com o valor de R1
+LDA R0, @352                    # Carrega o estado da entrada KEY0 em R0
+CEQ R0, @1                      # Verifica se R0 é igual a 1
+JEQ @186                        # Pula se for verdade
+STA R1, @19                     # Atualiza o endereço 19 da RAM com o valor de R1
+STA R1, @18                     # Atualiza o endereço 18 da RAM com o valor de R1
+STA R1, @17                     # Atualiza o endereço 17 da RAM com o valor de R1
+STA R1, @16                     # Atualiza o endereço 16 da RAM com o valor de R1
+RET                             # Retorna
 NOP
-LDA R1, @0                     #Carrega o valor do endereço 0 da RAM em R1 (0)
-STA R1, @19                    #Salva o valor do R1 no endereço 19 da RAM (valor atual das dezenas de minutos)
-STA R1, @18                    #Salva o valor do R1 no endereço 18 da RAM (valor atual das unidades de minutos)
-LDA R0, @352                   #Carrega o valor do KEY0 em R0
-CEQ R0, @1                     #Compara o valor de R0 com a posição 1 (1)
-JEQ @201           #Se for igual, pula para SETMin (Setar minutos)
-JMP @125           #Se for diferente, pula para UniHora (Incremento das unidades de horas)
+LDA R1, @0                      # Carrega o valor do endereço 0 da RAM em R1
+STA R1, @19                     # Atualiza o endereço 19 da RAM com o valor de R1
+STA R1, @18                     # Atualiza o endereço 18 da RAM com o valor de R1
+LDA R0, @352                    # Carrega o estado da entrada KEY0 em R0
+CEQ R0, @1                      # Verifica se R0 é igual a 1
+JEQ @201                        # Pula se for verdade
+JMP @125                        # Continua se for falso
 NOP
-LDA R1, @0                     #Carrega o valor do endereço 0 da RAM em R1 (0)
-STA R1, @17                    #Salva o valor do R1 no endereço 17 da RAM (valor atual das dezenas de segundos)
-STA R1, @16                    #Salva o valor do R1 no endereço 16 da RAM (valor atual das unidades de segundos)
-LDA R0, @352                   #Carrega o valor do KEY0 em R0
-CEQ R0, @1                     #Compara o valor de R0 com a posição 1 (1)
-JEQ @216           #Se for igual, pula para SETSeg (Setar segundos)
-JMP @103           #Se for diferente, pula para UniMin (Incremento das unidades de minutos)
+LDA R1, @0                      # Carrega o valor do endereço 0 da RAM em R1
+STA R1, @17                     # Atualiza o endereço 17 da RAM com o valor de R1
+STA R1, @16                     # Atualiza o endereço 16 da RAM com o valor de R1
+LDA R0, @352                    # Carrega o estado da entrada KEY0 em R0
+CEQ R0, @1                      # Verifica se R0 é igual a 1
+JEQ @216                        # Pula se for verdade
+JMP @103                        # Continua se for falso
 NOP
-STA @510                       #Limpa KEY 1
-STA @511                       #Limpa KEY 0
-LDA R1, @20                    #Carrega o valor do endereço 20 da RAM em R1 (valor atual das unidades de horas)
-STA R1, @292                   #Salva o valor do R1 no endereço 292 (valor atual das unidades de horas)
-LDA R1, @21                    #Carrega o valor do endereço 21 da RAM em R1 (valor atual das dezenas de horas)
-STA R1, @293                   #Salva o valor do R1 no endereço 293 (valor atual das dezenas de horas)
+STA @510                        # Reseta a entrada KEY1
+STA @511                        # Reseta a entrada KEY0
+LDA R1, @20                     # Carrega o valor do endereço 20 da RAM em R1
+STA R1, @292                    # Atualiza o display HEX 4 com o valor de R1
+LDA R1, @21                     # Carrega o valor do endereço 21 da RAM em R1
+STA R1, @293                    # Atualiza o display HEX 5 com o valor de R1
 NOP
-LDA R0, @352                   #Carrega o valor do KEY0 em R0
-CEQ R0, @1                     #Compara o valor de R0 com a posição 1 (1)
-JEQ @125           #Se for igual, pula para UniHora (Incremento das unidades de horas)
-LDA R0, @353                   #Carrega o valor do KEY1 em R0
-CEQ R0, @0                     #Compara o valor de R0 com a posição 0 (0)
-JEQ @193           #Se for igual, pula para Hora (Incremento das horas)
-STA @510                       #Limpa KEY 1
+LDA R0, @352                    # Carrega o estado da entrada KEY0 em R0
+CEQ R0, @1                      # Verifica se R0 é igual a 1
+JEQ @125                        # Pula se for verdade
+LDA R0, @353                    # Carrega o estado da entrada KEY1 em R0
+CEQ R0, @0                      # Verifica se R0 é igual a 0
+JEQ @193                        # Pula se for verdade
+STA @510                        # Reseta a entrada KEY1
 NOP
-STA @510                       #Limpa KEY 1
-STA @511                       #Limpa KEY 0  
-LDA R1, @18                    #Carrega o valor do endereço 18 da RAM em R1 (valor atual das unidades de minutos)
-STA R1, @290                   #Salva o valor do R1 no endereço 290 (valor atual das unidades de minutos)
-LDA R1, @19                    #Carrega o valor do endereço 19 da RAM em R1 (valor atual das dezenas de minutos)
-STA R1, @291                   #Salva o valor do R1 no endereço 291 (valor atual das dezenas de minutos)
+STA @510                        # Reseta a entrada KEY1
+STA @511                        # Reseta a entrada KEY0
+LDA R1, @18                     # Carrega o valor do endereço 18 da RAM em R1
+STA R1, @290                    # Atualiza o display HEX 2 com o valor de R1
+LDA R1, @19                     # Carrega o valor do endereço 19 da RAM em R1
+STA R1, @291                    # Atualiza o display HEX 3 com o valor de R1
 NOP
-LDA R0, @352                   #Carrega o valor do KEY0 em R0
-CEQ R0, @1                     #Compara o valor de R0 com a posição 1 (1)
-JEQ @103           #Se for igual, pula para UniMin (Incremento das unidades de minutos)
-LDA R0, @353                   #Carrega o valor do KEY1 em R0
-CEQ R0, @0                     #Compara o valor de R0 com a posição 0 (0)
-JEQ @208           #Se for igual, pula para Min (Incremento dos minutos)
-STA @510                       #Limpa KEY 1
+LDA R0, @352                    # Carrega o estado da entrada KEY0 em R0
+CEQ R0, @1                      # Verifica se R0 é igual a 1
+JEQ @103                        # Pula se for verdade
+LDA R0, @353                    # Carrega o estado da entrada KEY1 em R0
+CEQ R0, @0                      # Verifica se R0 é igual a 0
+JEQ @208                        # Pula se for verdade
+STA @510                        # Reseta a entrada KEY1
 NOP
-STA @510                       #Limpa KEY 1
-STA @511                       #Limpa KEY 0
-LDA R1, @16                    #Carrega o valor do endereço 16 da RAM em R1 (valor atual das unidades de segundos)
-STA R1, @288                   #Salva o valor do R1 no endereço 288 (valor atual das unidades de segundos)
-LDA R1, @17                    #Carrega o valor do endereço 17 da RAM em R1 (valor atual das dezenas de segundos)
-STA R1, @289                   #Salva o valor do R1 no endereço 289 (valor atual das dezenas de segundos)
+STA @510                        # Reseta a entrada KEY1
+STA @511                        # Reseta a entrada KEY0
+LDA R1, @16                     # Carrega o valor do endereço 16 da RAM em R1
+STA R1, @288                    # Atualiza o display HEX 0 com o valor de R1
+LDA R1, @17                     # Carrega o valor do endereço 17 da RAM em R1
+STA R1, @289                    # Atualiza o display HEX 1 com o valor de R1
 NOP
-LDA R0, @352                   #Carrega o valor do KEY0 em R0
-CEQ R0, @1                     #Compara o valor de R0 com a posição 1 (1)
-JEQ @81           #Se for igual, pula para UniSeg (Incremento das unidades de segundos)
-LDA R0, @353                   #Carrega o valor do KEY1 em R0
-CEQ R0, @0                     #Compara o valor de R0 com a posição 0 (0)
-JEQ @223           #Se for igual, pula para Seg (Incremento dos segundos)
-STA @510                       #Limpa KEY 1
-RET
+LDA R0, @352                    # Carrega o estado da entrada KEY0 em R0
+CEQ R0, @1                      # Verifica se R0 é igual a 1
+JEQ @81                         # Pula se for verdade
+LDA R0, @353                    # Carrega o estado da entrada KEY1 em R0
+CEQ R0, @0                      # Verifica se R0 é igual a 0
+JEQ @223                        # Pula se for verdade
+STA @510                        # Reseta a entrada KEY1
+RET                             # Retorna

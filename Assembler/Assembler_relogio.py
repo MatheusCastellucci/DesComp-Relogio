@@ -1,8 +1,93 @@
+"""
+- Criado em 07/Fevereiro/2022
+- Atualizado em 19/04/2023
+@autor: Marco Mello e Paulo Santos
+Regras:
+1) O Arquivo ASM.txt não pode conter linhas iniciadas com caracteres ' ' ou '\n')
+2) Linhas somente com comentários são excluídas 
+3) Instruções sem comentário no arquivo ASM receberão como comentário no arquivo BIN a própria instrução
+4) Exemplo de codigo invalido:
+                            0.___JSR @14 #comentario1
+                            1.___#comentario2           << Invalido ( Linha somente com comentário )
+                            2.___                       << Invalido ( Linha vazia )
+                            3.___JMP @5  #comentario3
+                            4.___JEQ @9
+                            5.___NOP
+                            6.___NOP
+                            7.___                       << Invalido ( Linha vazia )
+                            8.___LDI $5                 << Invalido ( Linha iniciada com espaço (' ') )
+                            9.___ STA $0
+                            10.__CEQ @0
+                            11.__JMP @2  #comentario4
+                            12.__NOP
+                            13.__ LDI $4                << Invalido ( Linha iniciada com espaço (' ') )
+                            14.__CEQ @0
+                            15.__JEQ @3
+                            16.__#comentario5           << Invalido ( Linha somente com comentário )
+                            17.__JMP @13
+                            18.__NOP
+                            19.__RET
+                                
+5) Exemplo de código válido (Arquivo ASM.txt):
+                            0.___JSR @14 #comentario1
+                            1.___JMP @5  #comentario3
+                            2.___JEQ @9
+                            3.___NOP
+                            4.___NOP
+                            5.___LDI $5
+                            6.___STA $0
+                            7.___CEQ @0
+                            8.___JMP @2  #comentario4
+                            9.___NOP
+                            10.__LDI $4
+                            11.__CEQ @0
+                            12.__JEQ @3
+                            13.__JMP @13
+                            14.__NOP
+                            15.__RET
+                            
+6) Resultado do código válido (Arquivo BIN.txt):
+                            0.__tmp(0) := x"90E"; -- comentario1
+                            1.__tmp(1) := x"605"; -- comentario3
+                            2.__tmp(2) := x"709"; -- JEQ @9
+                            3.__tmp(3) := x"000"; -- NOP
+                            4.__tmp(4) := x"000"; -- NOP
+                            5.__tmp(5) := x"405"; -- LDI $5
+                            6.__tmp(6) := x"500"; -- STA $0
+                            7.__tmp(7) := x"800"; -- CEQ @0
+                            8.__tmp(8) := x"602"; -- comentario4
+                            9.__tmp(9) := x"000"; -- NOP
+                            10._tmp(10) := x"404"; -- LDI $4
+                            11._tmp(11) := x"800"; -- CEQ @0
+                            12._tmp(12) := x"703"; -- JEQ @3
+                            13._tmp(13) := x"60D"; -- JMP @13
+                            14._tmp(14) := x"000"; -- NOP
+                            15._tmp(15) := x"A00"; -- RET
+"""
+
+
+
 inputASM = 'Assembler/ASM_modificado.txt' #Arquivo de entrada de contém o assembly
 outputBIN = 'Assembler/BIN.txt' #Arquivo de saída que contém o binário formatado para VHDL
 outputMIF = 'Assembler/initROM.mif' #Arquivo de saída que contém o binário formatado para .mif
 
 noveBits = True
+
+#definição dos mnemônicos e seus
+#respectivo OPCODEs (em Hexadecimal)
+mne =	{ 
+       "NOP":   "0",
+       "LDA":   "1",
+       "SOMA":  "2",
+       "SUB":   "3",
+       "LDI":   "4",
+       "STA":   "5",
+       "JMP":   "6",
+       "JEQ":   "7",
+       "CEQ":   "8",
+       "JSR":   "9",
+       "RET":   "A",
+}
 
 #Converte o valor após o caractere arroba '@'
 #em um valor hexadecimal de 2 dígitos (8 bits)
@@ -65,16 +150,57 @@ def defineInstrucao(line):
     line = line[0]
     return line
 
+def findLabel(file,new_file):
+    lista = []
+    with open(file, "r") as f:
+        lines = f.readlines()
+
+    dic_labels = {}
+    for idx, line in enumerate(lines):
+        if ':' in line:
+            label = line.split(':')[0]
+            dic_labels[label] = str(idx)
+    
+    with open(new_file, "w") as f:
+        for line in lines:
+            if line.startswith(('JEQ', 'JMP', 'JSR')):
+                if '#' in line:
+                    linha = line.split('#')
+                    coment = linha[1]
+                    jmp_split = linha[0].split('@')
+                    if jmp_split[1].strip() in dic_labels:
+                        new_line = jmp_split[0] + '@' + dic_labels[jmp_split[1].strip()] + '           #' + coment.rstrip('\n')
+                        f.write(new_line + '\n')
+                    else:
+                        f.write(line)
+                else:
+                    jmp_split = line.split('@')
+                    if jmp_split[1].strip() in dic_labels:
+                        new_line = jmp_split[0] + '@' + dic_labels[jmp_split[1].strip()]
+                        f.write(new_line + '\n')
+                    else:
+                        f.write(line)
+
+            elif ':' in line:
+                f.write('NOP\n')
+            elif line.startswith('RET'):
+                f.write('RET\n')
+            elif line.startswith('NOP'):
+                f.write('NOP\n')
+            else:
+                f.write(line)
+
 #Consulta o dicionário e "converte" o mnemônico em
 #seu respectivo valor em hexadecimal
 def trataMnemonico(line):
     line = line.replace("\n", "") #Remove o caracter de final de linha
     line = line.replace("\t", "") #Remove o caracter de tabulacao
-    line = line.split(' ') #Separa a linha em partes
-    #vc consegue fazer com que na volta, saia o mnemonico em si, e não o valor
-    
+    line = line.split(' ')
+    line[0] = mne[line[0]]
     line = "".join(line)
     return line
+    
+#findLabel('assembly.txt', 'ASM_modificado.txt')
 
 with open(inputASM, "r") as f: #Abre o arquivo ASM
     lines = f.readlines() #Verifica a quantidade de linhas

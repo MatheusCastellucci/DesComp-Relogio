@@ -1,0 +1,34 @@
+Quartus Prime Archive log --	C:/DesComp/DesComp-Relogio/Relogio/ProjetoRelogio.qarlog
+
+Archive:	C:/DesComp/DesComp-Relogio/Relogio/ProjetoRelogio.qar
+Date:		Mon Apr 22 21:32:36 2024
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/DesComp/DesComp-Relogio/Relogio/CPU.vhd
+C:/DesComp/DesComp-Relogio/Relogio/FlipFlop.vhd
+C:/DesComp/DesComp-Relogio/Relogio/ProjetoRelogio.qpf
+C:/DesComp/DesComp-Relogio/Relogio/ProjetoRelogio.qsf
+C:/DesComp/DesComp-Relogio/Relogio/Relogio.vhd
+C:/DesComp/DesComp-Relogio/Relogio/ULASomaSub.vhd
+C:/DesComp/DesComp-Relogio/Relogio/bancoRegistradoresArqRegMem.vhd
+C:/DesComp/DesComp-Relogio/Relogio/buffer_3_state_8portas.vhd
+C:/DesComp/DesComp-Relogio/Relogio/conversorHex7Seg.vhd
+C:/DesComp/DesComp-Relogio/Relogio/decoder3x8.vhd
+C:/DesComp/DesComp-Relogio/Relogio/decoderInstru.vhd
+C:/DesComp/DesComp-Relogio/Relogio/divisorGenerico.vhd
+C:/DesComp/DesComp-Relogio/Relogio/divisorGenerico_e_Interface.vhd
+C:/DesComp/DesComp-Relogio/Relogio/edgeDetector.vhd
+C:/DesComp/DesComp-Relogio/Relogio/logicaDesvia.vhd
+C:/DesComp/DesComp-Relogio/Relogio/memoriaRAM.vhd
+C:/DesComp/DesComp-Relogio/Relogio/memoriaROM.vhd
+C:/DesComp/DesComp-Relogio/Relogio/muxGenerico2x1.vhd
+C:/DesComp/DesComp-Relogio/Relogio/muxGenerico2x1_bit.vhd
+C:/DesComp/DesComp-Relogio/Relogio/muxGenerico4x1.vhd
+C:/DesComp/DesComp-Relogio/Relogio/registradorGenerico.vhd
+C:/DesComp/DesComp-Relogio/Relogio/somaConstante.vhd
+c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 23 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
